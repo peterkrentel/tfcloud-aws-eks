@@ -20,7 +20,7 @@ variable "ami_release_version" {
 variable "aws_region" {
   description = "AWS region to deploy resources"
   type        = string
-  default     = "us-east-1"  # Optional default
+  default     = "us-east-1"
 }
 
 
