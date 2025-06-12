@@ -16,13 +16,11 @@ variable "ami_release_version" {
   default     = "1.31.3-20250103"
 }
 
-
-variable "aws_region" {
-  description = "AWS region to deploy resources"
-  type        = string
-  default     = "us-east-1"
+variable "aws_region"{
+  description = "aws region"
+  type = string
+  default = "us-east-1"
 }
-
 
 variable "vpc_cidr" {
   description = "Defines the CIDR block used on Amazon VPC created for Amazon EKS."
