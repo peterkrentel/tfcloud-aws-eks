@@ -34,3 +34,36 @@ Here is how I set it up and will continue:
 3. Go learn via workshop
 
 Hope it helps others learn as well.
+# aws cli install:
+```
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+```
+# The deployment
+I grabed code base and will run commands accordingly:
+```
+aws eks --region <your-region> update-kubeconfig --name <your-cluster-name>
+
+kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/base-application/catalog
+
+kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/base-application/
+kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/modules/introduction/kustomize/
+kubectl get pod -n checkout -l app.kubernetes.io/component=service
+```
+# Helm stuff
+```
+helm version
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm search repo nginx
+
+helm upgrade --install nginx bitnami/nginx  --version $NGINX_CHART_VERSION  --namespace nginx --create-namespace --wait  --set replicaCount=3  --values /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/modules/introduction/helm/values.yaml  --wait
+
+helm history nginx -n nginx
+
+kubectl get pods -n nginx
+
+helm uninstall nginx --namespace nginx --wait
+```
