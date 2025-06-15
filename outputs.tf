@@ -6,7 +6,3 @@ output "environment_variables" {
   }
 }
 
-
-output "cluster_name" {
-  value = module.eks.cluster_name
-}
