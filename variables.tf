@@ -39,3 +39,9 @@ variable "remote_pod_cidr" {
   type        = string
   default     = "10.53.0.0/16"
 }
+variable "load_balancer_controller_chart_version" {
+  description = "The chart version of aws-load-balancer-controller to use"
+  type        = string
+  # renovate-helm: depName=aws-load-balancer-controller
+  default = "1.12.0"
+}
