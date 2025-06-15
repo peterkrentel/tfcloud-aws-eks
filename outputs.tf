@@ -5,3 +5,8 @@ output "environment_variables" {
     LBC_ROLE_ARN      = module.eks_blueprints_addons.aws_load_balancer_controller.iam_role_arn
   }
 }
+
+
+output "cluster_name" {
+  value = module.eks.cluster_name
+}
