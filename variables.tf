@@ -39,12 +39,3 @@ variable "remote_pod_cidr" {
   type        = string
   default     = "10.53.0.0/16"
 }
-
-variable "addon_context" {
-  description = "Outputs from the EKS cluster module"
-  type = object({
-    eks_cluster_id                = string
-    aws_eks_cluster_endpoint      = string
-    eks_oidc_provider_arn         = string
-  })
-}
