@@ -40,11 +40,6 @@ variable "remote_pod_cidr" {
   default     = "10.53.0.0/16"
 }
 
-variable "eks_cluster_version" {
-  description = "The EKS control-plane version (e.g. 1.30)"
-  type        = string
-}
-
 variable "addon_context" {
   description = "Outputs from the EKS cluster module"
   type = object({
