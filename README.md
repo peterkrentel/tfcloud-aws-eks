@@ -45,6 +45,7 @@ aws --version
 I grabed code base and will run commands accordingly:
 ```
 aws eks --region <your-region> update-kubeconfig --name <your-cluster-name>
+aws eks --region us-east-1 update-kubeconfig --name eks-workshop
 
 kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/base-application/catalog
 
@@ -52,6 +53,12 @@ kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/base-appl
 kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/modules/introduction/kustomize/
 kubectl get pod -n checkout -l app.kubernetes.io/component=service
 ```
+# nlb part:
+https://eksworkshop.com/docs/fundamentals/exposing/loadbalancer/adding-lb
+```
+kubectl apply -k /workspaces/tfcloud-aws-eks/eks-workshop-v2/manifests/modules/exposing/load-balancer/nlb
+```
+
 # Helm stuff
 ```
 helm version
